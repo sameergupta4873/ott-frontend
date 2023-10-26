@@ -147,7 +147,7 @@ export default function Home() {
     if(slides[0]){
       setActive(slides[0].id as any);
     }
-  }, [slides, active, playlists]);
+  }, [slides]);
 
   // useEffect(() => {
   //   if (search === "" && movies.length === 0) {
