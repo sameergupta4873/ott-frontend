@@ -205,4 +205,39 @@ export const fetchSearchTVResults = async (search: string) => {
     }
 }
 
+export const getTechnoVideos = async (playlist: any) => {
+    try {
+        const url = `https://youtube-v3-alternative.p.rapidapi.com/playlist`
+        const response = await axios.get(url, {
+            params: {
+                id: playlist,
+            },
+            headers: {
+                'x-rapidapi-key': '3df8f0f7cbmsh8fabfbdfa8ca9ccp1b6a3fjsnf69f35f83373',
+                'x-rapidapi-host': 'youtube-v3-alternative.p.rapidapi.com'
+            }
+        })
+        const data = response.data;
+        const videos = data.data.map((video: any) => ({
+            id: video.videoId,
+            title: video.title,
+            description: video.videoInfo,
+            thumbnail: video.thumbnail[0],
+            largeThumbnail: video.thumbnail[3],
+            richThumbnail: video.richThumbnail?.length > 0 ? video.richThumbnail[0] : null,
+            publishedAt: video.publishedText,
+            length: video.lengthText,
+            viewCount: video.viewCount,
+
+        }))
+        console.log(videos);
+        return videos;
+        
+
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
+};
+
 export default fetchTopRatedMovies;

@@ -4,8 +4,9 @@ import "pure-react-carousel/dist/react-carousel.es.css";
 
 /* Install pure-react-carousel using -> npm i pure-react-carousel */
 
-export default function Carousel({ setActive, slides, setDetails, fetchDetails, active, tv, setShowDetails, setSeason, setEpisode }: any) {
-
+export default function Carousel({ setActive, slides, fetchDetails, active, tv, setShowDetails, setSeason, setEpisode }: any) {
+    console.log(slides);
+    
 
     return (
         <div className="container mx-auto">
@@ -27,20 +28,14 @@ export default function Carousel({ setActive, slides, setDetails, fetchDetails, 
                                     {slides && slides.map((slide: any, key: any) => {
                                         return (
                                             <Slide onClick={() => {
-                                                setDetails(null);
+                                                // setDetails(null);
                                                 setActive(slide.id);
-                                                if (tv) {
-                                                    fetchDetails(slide.id);
-                                                    setShowDetails(true);
-                                                    setSeason(1);
-                                                    setEpisode(1);
-                                                }
                                             }}
                                                 key={key} index={slide.id}
                                                 className="cursor-pointer rounded-xl"
                                             >
                                                 <div className="flex flex-shrink-0 relative w-full sm:w-auto hover:scale-[110%] rounded-xl transition-all duration-200 group">
-                                                    <img src={slide.posterUrl} alt="black chair and white table" className="object-cover 
+                                                    <img src={`https://i.ytimg.com/vi/${slide.id}/hqdefault.jpg`} alt="black chair and white table" className="object-cover 
                                                 rounded-xl shadow-2xl object-center w-full h-[30vh]" />
                                                     <div className="rounded-xl absolute w-full h-full p-6">
                                                         <div className="flex items-end absolute bottom-[-100%] group-hover:bottom-0 transition-all ease-in-out duration-200 left-0 px-6 py-7 w-full"
@@ -83,7 +78,7 @@ export default function Carousel({ setActive, slides, setDetails, fetchDetails, 
                                         return (
                                             <Slide key={key} index={slide.id}
                                                 onClick={() => {
-                                                    setDetails(null);
+                                                    // setDetails(null);
                                                     setActive(slide.id);
                                                     if (tv) {
                                                         fetchDetails(slide.id);
@@ -135,7 +130,7 @@ export default function Carousel({ setActive, slides, setDetails, fetchDetails, 
                                         return (
                                             <Slide key={id} index={slide.id}
                                                 onClick={() => {
-                                                    setDetails(null);
+                                                    // setDetails(null);
                                                     setActive(slide.id);
                                                     if (tv) {
                                                         fetchDetails(slide.id);
