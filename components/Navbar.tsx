@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Navbar = ({ setTv, tv, search, setSearch, slides, active, setActive, searchMovies, loadMovies, loadTv, searchTv, navActive, setNavActive, playlists, setPlaylists, requestVideo, setRequestVideo }: any) => {
+const Navbar = ({ setTv, tv, search, setSearch, slides, active, setActive, searchMovies, loadMovies, loadTv, searchTv, navActive, setNavActive, playlists, setPlaylists, requestVideo, setRequestVideo, setSeason }: any) => {
 
 
     return (
@@ -16,6 +16,7 @@ const Navbar = ({ setTv, tv, search, setSearch, slides, active, setActive, searc
                     setPlaylists('PLo5HuYfoQCZ7rBBfRHqt6ASMLtYVtHSlL')
                     setActive(null);
                     setNavActive('gls')
+                    setSeason(null);
                 }} className={` text-2xl max-lg:text-xl max-md:text-lg max-sm:text-xs`}>Guest Lectures</button>
             </div>
             {/* <div className={`absolute inline-block my-3 p-2 px-5 left-[15vw] max-md:left-[20vw] max-sm:px-2 max-sm:p-0.5 max-sm:my-2 max-sm:left-[21vw] max-lg:left-[17vw] ${tv ? 'border-b-2 text-white' : 'text-gray-400'}`}>
@@ -28,7 +29,8 @@ const Navbar = ({ setTv, tv, search, setSearch, slides, active, setActive, searc
                 <button onClick={() => {
                      setPlaylists('PLJnQSU-Gw1Zwy_56WoAOGWBpYv1F7HLrp')
                     setActive(null);
-                    setNavActive('coc')
+                    setNavActive('coc');
+                    setSeason(null);
                 }} className='text-2xl max-lg:text-xl max-md:text-lg max-sm:text-xs'>CoC</button>
             </div>
             {/* <div className="absolute inline-block my-3 p-2 px-5 right-[3vw]">

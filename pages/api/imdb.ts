@@ -213,7 +213,7 @@ export const getTechnoVideos = async (playlist: any) => {
                 id: playlist,
             },
             headers: {
-                'x-rapidapi-key': '3df8f0f7cbmsh8fabfbdfa8ca9ccp1b6a3fjsnf69f35f83373',
+                'x-rapidapi-key': '79f0be14e0msh3f3fc82092707d2p11990djsnc5a289708415',
                 'x-rapidapi-host': 'youtube-v3-alternative.p.rapidapi.com'
             }
         })
@@ -239,5 +239,34 @@ export const getTechnoVideos = async (playlist: any) => {
         return [];
     }
 };
+
+export const sendRequest = async (data: any) => {
+    try {
+        const url = `http://localhost:4000/api/v1/sendmail`;
+        let body = {
+            videoTitle: data.videoTitle,
+            eventName: data.eventName,
+            committee: data.selectedCommittee,
+            senderName: data.senderName,
+            comments: data.description,
+            emails: data.emails,
+        }
+        console.log(body);
+        const config = {
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+            }
+          };
+        
+        const response = await axios.post(url, body, config);
+        const verdict: string = response.data
+        
+        return verdict;
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 export default fetchTopRatedMovies;
