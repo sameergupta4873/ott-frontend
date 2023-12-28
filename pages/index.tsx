@@ -692,7 +692,7 @@ export default function Home() {
                   className="text-white bg-white/20 hover:bg-white/10 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center max-md:text-xs"
                   type="button"
                 >
-                  {selectedMembers ? selectedMembers.map((member: any, idx: any)=>{ let names = ""; names += `${member.name}`; return <span className="bg-[#010024] ml-2 rounded px-2 flex justify-between items-center mr-2">{names} 
+                  {selectedMembers ? selectedMembers.map((member: any, idx: any)=>{ let names = ""; names += `${member.name}`; return <span key={idx} className="bg-[#010024] ml-2 rounded px-2 flex justify-between items-center mr-2">{names} 
                   <svg onClick={()=>{
                     const newMembers = selectedMembers.filter((mem: any, id: any) => id !== idx);
                     setSelectedMembers(newMembers);
